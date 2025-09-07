@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react"
-import { Scale, Shield, BookOpen } from "lucide-react"
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import "../styles/normateca.page.css"
+import { useState, useEffect } from "react";
+import { Scale, Shield, BookOpen, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import "../styles/normateca.page.css";
 
-export default function NormatecaDigital() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+const NormatecaPage = () => {
+  const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
@@ -20,27 +22,31 @@ export default function NormatecaDigital() {
       image: "imagen3.jpg",
       alt: "Reunión profesional sobre ética de la información",
     },
-  ]
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 4000)
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000);
 
-    return () => clearInterval(interval)
-  }, [slides.length])
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
       <div className="carousel-container">
-        <div className="carousel" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+        <div
+          className="carousel"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
           {slides.map((slide, index) => (
             <div key={index} className="carousel-slide">
               <img
                 src={
-                  slide.image || "/placeholder.svg?height=500&width=1200&query=professional legal documents and books"
+                  slide.image ||
+                  "/placeholder.svg?height=500&width=1200&query=professional legal documents and books"
                 }
                 alt={slide.alt}
               />
@@ -57,10 +63,12 @@ export default function NormatecaDigital() {
           <h2 className="info-title">Bienvenido a la Normateca Digital</h2>
           <div className="info-content text-center">
             <p className="info-paragraph text-lg leading-relaxed max-w-4xl mx-auto">
-              Este portal es tu punto de acceso centralizado a las principales normativas, leyes y estándares nacionales
-              e internacionales que rigen el manejo de información, la protección de datos personales, la propiedad
-              intelectual y la ciberseguridad. Encuentra aquí, de forma ordenada y con explicaciones sencillas, todo lo
-              que necesitas para informarte y cumplir
+              Este portal es tu punto de acceso centralizado a las principales
+              normativas, leyes y estándares nacionales e internacionales que
+              rigen el manejo de información, la protección de datos personales,
+              la propiedad intelectual y la ciberseguridad. Encuentra aquí, de
+              forma ordenada y con explicaciones sencillas, todo lo que
+              necesitas para informarte y cumplir
             </p>
           </div>
         </div>
@@ -70,31 +78,68 @@ export default function NormatecaDigital() {
           <div className="cards-container">
             <div className="consultation-card">
               <div className="card-icon-section mexican-laws">
-                <Scale className="card-icon" size={32} />
+                <div className="icon-wrapper">
+                  <Scale className="card-icon" size={40} />
+                </div>
+                <div className="card-pattern"></div>
               </div>
               <div className="card-content">
                 <h4 className="card-title">Leyes Mexicanas</h4>
-                <button className="card-link">Conocer más...</button>
+                <p className="card-description">
+                  Consulta las principales leyes y normativas mexicanas
+                  relacionadas con el manejo de información.
+                </p>
+                <button
+                  className="card-button"
+                  onClick={() => navigate("/leyes")}
+                >
+                  <span>Conocer más</span>
+                  <ArrowRight className="button-icon" size={16} />
+                </button>
               </div>
             </div>
 
             <div className="consultation-card">
               <div className="card-icon-section info-standards">
-                <Shield className="card-icon" size={32} />
+                <div className="icon-wrapper">
+                  <Shield className="card-icon" size={40} />
+                </div>
+                <div className="card-pattern"></div>
               </div>
               <div className="card-content">
-                <h4 className="card-title">Estándares del Manejo de la Información</h4>
-                <button className="card-link">Conocer más...</button>
+                <h4 className="card-title">
+                  Estándares del Manejo de la Información
+                </h4>
+                <p className="card-description">
+                  Explora los estándares internacionales para el manejo seguro y
+                  eficiente de la información.
+                </p>
+                <button className="card-button">
+                  <span>Conocer más</span>
+                  <ArrowRight className="button-icon" size={16} />
+                </button>
               </div>
             </div>
 
             <div className="consultation-card">
               <div className="card-icon-section ethical-aspects">
-                <BookOpen className="card-icon" size={32} />
+                <div className="icon-wrapper">
+                  <BookOpen className="card-icon" size={40} />
+                </div>
+                <div className="card-pattern"></div>
               </div>
               <div className="card-content">
-                <h4 className="card-title">Aspectos Éticos y Legales del Manejo de la Información</h4>
-                <button className="card-link">Conocer más...</button>
+                <h4 className="card-title">
+                  Aspectos Éticos y Legales del Manejo de la Información
+                </h4>
+                <p className="card-description">
+                  Comprende los principios éticos y marcos legales que guían el
+                  uso responsable de la información.
+                </p>
+                <button className="card-button">
+                  <span>Conocer más</span>
+                  <ArrowRight className="button-icon" size={16} />
+                </button>
               </div>
             </div>
           </div>
@@ -103,5 +148,7 @@ export default function NormatecaDigital() {
 
       <Footer />
     </div>
-  )
-}
+  );
+};
+
+export default NormatecaPage;

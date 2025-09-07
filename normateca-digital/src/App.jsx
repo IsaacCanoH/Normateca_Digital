@@ -1,13 +1,12 @@
-import NormatecaPage from './pages/NormatecaPage'
-import AnimatedBackground from './components/AnimatedBackground' 
-import LeyesPage from './pages/LeyesPage'
+import AnimatedBackground from "./components/AnimatedBackground"
+import AppRoutes from "./routes/Routes"
 
 function App() {
   return (
     <div className="app-container">
       <AnimatedBackground />
       <div className="app-content">
-        <LeyesPage />
+        <AppRoutes />
       </div>
     </div>
   )

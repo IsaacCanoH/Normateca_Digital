@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Menu, X, BookOpen } from "lucide-react";
-import '../styles/navbar.component.css'
+import { useNavigate } from "react-router-dom";
+import "../styles/navbar.component.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -10,7 +12,11 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-brand">
+        <div
+          className="navbar-brand"
+          onClick={() => navigate("/")}
+          style={{ cursor: "pointer" }}
+        >
           <BookOpen className="navbar-icon" />
           <span>Normateca Digital</span>
         </div>
@@ -22,9 +28,13 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="#leyes" className="nav-link">
+            <span
+              onClick={() => navigate("/leyes")}
+              className="nav-link"
+              style={{ cursor: "pointer" }}
+            >
               Leyes Mexicanas
-            </a>
+            </span>
           </li>
           <li>
             <a href="#estandares" className="nav-link">
@@ -38,11 +48,21 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className={`mobile-nav ${isMobileMenuOpen ? "mobile-nav-open" : ""}`}>
-        <a href="#leyes" onClick={() => setIsMobileMenuOpen(false)} className="mobile-nav-link">
+      <div
+        className={`mobile-nav ${isMobileMenuOpen ? "mobile-nav-open" : ""}`}
+      >
+        <a
+          href="#leyes"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="mobile-nav-link"
+        >
           Leyes
         </a>
-        <a href="#estandares" onClick={() => setIsMobileMenuOpen(false)} className="mobile-nav-link">
+        <a
+          href="#estandares"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="mobile-nav-link"
+        >
           Estándares
         </a>
       </div>
