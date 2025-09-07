@@ -1,12 +1,15 @@
-import { useState } from 'react'
 import NormatecaPage from './pages/NormatecaPage'
+import AnimatedBackground from './components/AnimatedBackground' 
+import LeyesPage from './pages/LeyesPage'
 
 function App() {
-
   return (
-    <>
-      <NormatecaPage />
-    </>
+    <div className="app-container">
+      <AnimatedBackground />
+      <div className="app-content">
+        <LeyesPage />
+      </div>
+    </div>
   )
 }
 

@@ -1,0 +1,164 @@
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.matrix {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.binary-rain {
+  position: absolute;
+  color: #198754;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(13, 110, 253, 0.6);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+.security-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.icon {
+  position: absolute;
+  font-size: 24px;
+  color: rgba(33, 37, 41, 0.7);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.lock-icon::before {
+  content: "🔒";
+  filter: drop-shadow(0 0 10px rgba(13, 110, 253, 0.5));
+}
+
+.shield-icon::before {
+  content: "🛡️";
+  filter: drop-shadow(0 0 10px rgba(25, 135, 84, 0.5));
+}
+
+.scale-icon::before {
+  content: "⚖️";
+  filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.8));
+}
+
+.document-icon::before {
+  content: "📋";
+  filter: drop-shadow(0 0 10px rgba(108, 117, 125, 0.8));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+.connection-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.8), transparent);
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+.hexagon-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.hexagon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(108, 117, 125, 0.4);
+  transform: rotate(45deg);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
