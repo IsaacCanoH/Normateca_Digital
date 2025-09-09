@@ -23,9 +23,13 @@ const Navbar = () => {
 
         <ul className="navbar-nav desktop-nav">
           <li>
-            <a href="#aspectos" className="nav-link">
+            <span
+              onClick={() => navigate("/etica")}
+              className="nav-link"
+              style={{ cursor: "pointer" }}
+            >
               Aspectos Éticos y Legales
-            </a>
+            </span>
           </li>
           <li>
             <span
@@ -37,9 +41,13 @@ const Navbar = () => {
             </span>
           </li>
           <li>
-            <a href="#estandares" className="nav-link">
+            <span
+              onClick={() => navigate("/estandares")}
+              className="nav-link"
+              style={{ cursor: "pointer" }}
+            >
               Estándares Manejo Información
-            </a>
+            </span>
           </li>
         </ul>
 
@@ -51,20 +59,36 @@ const Navbar = () => {
       <div
         className={`mobile-nav ${isMobileMenuOpen ? "mobile-nav-open" : ""}`}
       >
-        <a
-          href="#leyes"
-          onClick={() => setIsMobileMenuOpen(false)}
+        <span
+          onClick={() => {
+            navigate("/etica");
+            setIsMobileMenuOpen(false);
+          }}
           className="mobile-nav-link"
+          style={{ cursor: "pointer" }}
         >
-          Leyes
-        </a>
-        <a
-          href="#estandares"
-          onClick={() => setIsMobileMenuOpen(false)}
+          Aspectos Éticos
+        </span>
+        <span
+          onClick={() => {
+            navigate("/leyes");
+            setIsMobileMenuOpen(false);
+          }}
           className="mobile-nav-link"
+          style={{ cursor: "pointer" }}
+        >
+          Leyes Mexicanas
+        </span>
+        <span
+          onClick={() => {
+            navigate("/estandares");
+            setIsMobileMenuOpen(false);
+          }}
+          className="mobile-nav-link"
+          style={{ cursor: "pointer" }}
         >
           Estándares
-        </a>
+        </span>
       </div>
     </nav>
   );
