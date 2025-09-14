@@ -1,15 +1,18 @@
 .navbar {
-  background: linear-gradient(135deg, #320b4a 0%, #4c1d95 100%) !important;
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0;
-  box-shadow: 0 4px 20px rgba(50, 11, 74, 0.15);
-  position: relative;
-  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,29 +24,28 @@
   align-items: center;
   gap: 0.75rem;
   color: white !important;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.75rem;
+  font-weight: 800;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   position: relative;
 }
 
 .navbar-brand:hover {
-  transform: translateY(-2px) scale(1.02);
-  text-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
   color: white !important;
 }
 
 .navbar-brand:hover .navbar-icon {
   transform: rotate(15deg) scale(1.1);
-  color: #a78bfa;
+  color: #8b5cf6;
 }
 
 .navbar-icon {
-  width: 28px;
-  height: 28px;
-  color: #e5e7eb !important;
+  width: 32px;
+  height: 32px;
+  color: #8b5cf6 !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -56,11 +58,11 @@
 }
 
 .nav-link {
-  color: #e5e7eb !important;
+  color: #d1d5db !important;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   border-radius: 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -68,6 +70,9 @@
   background: none !important;
   border: none;
   box-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
 }
 
 .nav-link::after {
@@ -77,7 +82,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #a78bfa, #e879f9);
+  background: linear-gradient(90deg, #8b5cf6, #22c55e);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -86,7 +91,6 @@
   color: white !important;
   background: none !important;
   transform: translateY(-1px);
-  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
 }
 
 .nav-link:hover::after {
@@ -95,23 +99,26 @@
 
 .mobile-menu-btn {
   display: none;
-  background: none;
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .mobile-menu-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
 .mobile-nav {
   display: none;
   flex-direction: column;
-  background: linear-gradient(135deg, #320b4a 0%, #4c1d95 100%) !important;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(20px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   max-height: 0;
   overflow: hidden;
@@ -124,22 +131,35 @@
 }
 
 .mobile-nav-open {
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .mobile-nav-link {
-  color: #e5e7eb !important;
+  color: #d1d5db !important;
   text-decoration: none;
-  padding: 1rem 2rem;
+  padding: 1.25rem 4rem;
   font-weight: 500;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
 }
 
 .mobile-nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(139, 92, 246, 0.1);
   color: white !important;
-  padding-left: 2.5rem;
+  padding-left: 5rem;
+}
+
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 1rem 2rem;
+  }
+
+  .desktop-nav {
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -156,12 +176,18 @@
   }
 
   .navbar-container {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
-}
 
-@media (max-width: 480px) {
   .navbar-brand {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+  }
+
+  .mobile-nav-link {
+    padding: 1.25rem 2rem;
+  }
+
+  .mobile-nav-link:hover {
+    padding-left: 3rem;
   }
 }

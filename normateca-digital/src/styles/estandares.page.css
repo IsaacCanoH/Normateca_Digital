@@ -26,7 +26,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(59, 130, 246, 0.6));
+  background: linear-gradient(135deg, rgba(235, 37, 37, 0.8), rgba(0, 0, 0, 0.6));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@
 
 .intro-section {
   padding: 4rem 1rem 2rem;
-  background: linear-gradient(145deg, #f8fafc 0%, #ffffff 100%);
+  background: linear-gradient(145deg, #000000 0%, #281e1ef2 100%);
 }
 
 .intro-container {
@@ -54,18 +54,18 @@
 }
 
 .intro-title {
-  color: #2563eb;
+  color: #ff7979;
   font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #97fadc 0%, #91f5fc 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .intro-text {
-  color: #4b5563;
+  color: #edf5ff;
   font-size: 1.125rem;
   line-height: 1.7;
   max-width: 800px;
@@ -418,21 +418,25 @@
 .official-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   text-decoration: none;
   font-weight: 600;
-  color: inherit;
+  color: inherit; 
   transition: all 0.3s ease;
   padding: 0.75rem 1.25rem;
   background: #f8fafc;
   border-radius: 8px;
   border: 2px solid currentColor;
-  margin-top: 0.5rem;
+  margin: 1.5rem auto 0 auto; 
+  display: block; 
+  text-align: center;
 }
 
 .official-link:hover {
-  background: currentColor;
-  color: white;
+
+  color: #ffffff; 
+  
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
