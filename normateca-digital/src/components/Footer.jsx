@@ -33,7 +33,7 @@ import { useState } from "react"
              </button>
            </div>
            <div className="modal-body">
-           <h4>Política de Privacidad - Normateca Digital</h4>
+           <h4>Normateca Digital</h4>
             <div className="privacy-content">
               <h4>AVISO DE PRIVACIDAD</h4>
               
